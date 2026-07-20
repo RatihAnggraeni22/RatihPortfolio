@@ -6,4 +6,4 @@ I am an Informatics graduate from Universitas Amikom Purwokerto with interests a
 
 This portfolio showcases my academic background, professional experiences, projects, certifications, and achievements.
 
-🌐 **Live Website:** 
+🌐 **Live Website: ratih-portfolio-blond.vercel.app** 
