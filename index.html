@@ -20,43 +20,54 @@
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+<!-- =========================
+     NAVBAR
+========================= -->
 
-    <header class="navbar">
+<header class="site-header">
 
-        <a href="#home" class="logo">
+    <nav class="navbar">
+
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
             ✦ Ratih Anggraeni
         </a>
 
-        <nav id="navMenu">
 
-            <a href="#home" class="active">
+        <!-- NAVIGATION MENU -->
+        <div class="nav-menu">
+
+            <a href="index.html" class="nav-link">
                 Home
             </a>
 
-            <a href="#projects">
+            <a href="index.html#projects" class="nav-link">
                 Projects
             </a>
 
-            <a href="#posts">
+            <a href="index.html#posts" class="nav-link">
                 Posts
             </a>
 
-            <a href="#about">
+            <a href="index.html#about" class="nav-link">
                 About
             </a>
 
-            <button id="themeToggle" class="theme-toggle">
+            <!-- MODE BUTTON -->
+            <button
+                type="button"
+                class="theme-toggle"
+                onclick="document.body.classList.toggle('light-mode')">
+
                 ☾ Night mode
+
             </button>
 
-        </nav>
+        </div>
 
-        <button class="menu-toggle" id="menuToggle">
-            ☰
-        </button>
+    </nav>
 
-    </header>
+</header>
 
 
     <!-- ================= MAIN ================= -->
