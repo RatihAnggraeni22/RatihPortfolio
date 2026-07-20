@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sales Staff | Ratih Anggraeni</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           THEME
+        ========================= */
+
+        :root {
+            --bg: #1c1c1c;
+            --surface: #242424;
+            --text: #f5f5f5;
+            --muted: #a9b4c2;
+            --border: rgba(255, 255, 255, 0.15);
+            --grid: rgba(255, 255, 255, 0.035);
+        }
+
+        [data-theme="light"] {
+            --bg: #f7f7f7;
+            --surface: #ffffff;
+            --text: #1c1c1c;
+            --muted: #5f6b78;
+            --border: rgba(0, 0, 0, 0.15);
+            --grid: rgba(0, 0, 0, 0.05);
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+
+        /* =========================
+           BACKGROUND GRID
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+
+            background-image:
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+
+            background-size: 55px 55px;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .page-header {
+            max-width: 1200px;
+            margin: auto;
+            padding: 28px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 10px 18px;
+
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+
+        .back-button:hover {
+            background: var(--text);
+            color: var(--bg);
+            transform: translateX(-5px);
+        }
+
+
+        .theme-toggle {
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+
+            padding: 10px 16px;
+            border-radius: 8px;
+
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .page-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 40px 100px;
+        }
+
+
+        .page-label {
+            color: var(--muted);
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+
+        h1 {
+            font-size: clamp(42px, 7vw, 80px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+
+        .intro {
+            max-width: 850px;
+            color: var(--muted);
+            font-size: 19px;
+            margin-bottom: 70px;
+        }
+
+
+        /* =========================
+           CONTENT SECTION
+        ========================= */
+
+        .content-section {
+            margin-bottom: 70px;
+        }
+
+
+        .content-section h2 {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+
+        .content-section p {
+            max-width: 900px;
+            color: var(--muted);
+            font-size: 17px;
+            text-align: justify;
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           COMPANY IMAGE
+        ========================= */
+
+        .company-image {
+            width: 100%;
+            max-height: 500px;
+
+            object-fit: cover;
+
+            border-radius: 16px;
+            border: 1px solid var(--border);
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+
+        .gallery-card {
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            background: var(--surface);
+
+            transition: 0.4s ease;
+        }
+
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .gallery-card img {
+            width: 100%;
+            height: 260px;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition: 0.4s ease;
+        }
+
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           JOB DETAILS
+        ========================= */
+
+        .details-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+
+        .detail-item {
+            padding: 25px;
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            background: var(--surface);
+        }
+
+
+        .detail-item h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+
+        .detail-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding-top: 50px;
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+            text-align: center;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .page-header {
+                padding: 22px 20px;
+            }
+
+            .page-container {
+                padding: 40px 20px 70px;
+            }
+
+            .gallery-grid,
+            .details-box {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body data-theme="dark">
+
+
+    <!-- HEADER -->
+
+    <header class="page-header">
+
+        <a href="index.html" class="back-button">
+            ← Back to Portfolio
+        </a>
+
+        <button class="theme-toggle" onclick="toggleTheme()">
+            ☼ / ☾ Theme
+        </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="page-container">
+
+
+        <div class="page-label">
+    Customer Service & Sales
+</div>
+
+<h1>
+    Sales Staff Mobile Phone & Accessories Store
+</h1>
+
+<p class="intro">
+    Professional experience in customer service, sales, product information,
+    communication, and daily store operations.
+</p>
+
+
+        <!-- COMPANY -->
+
+       <h2>
+    About the Company
+</h2>
+
+
+<p>
+    The mobile phone and accessories store provides various mobile devices,
+    accessories, and customer services. The business focuses on product sales,
+    customer assistance, and providing suitable product information based on customer needs.
+</p>
+
+        <!-- JOB -->
+
+        <section class="content-section">
+
+            <h2>
+    My Role & Responsibilities
+</h2>
+
+<p>
+    As a Sales Staff, I was responsible for serving customers, providing product
+    information, supporting sales activities, and assisting with daily store operations.
+    This experience strengthened my communication, customer service, sales, and administrative skills.
+</p>
+
+<div class="details-box">
+
+    <div class="detail-item">
+        <h3>Customer Service</h3>
+        <p>
+            Providing friendly and responsive service to customers.
+        </p>
+    </div>
+
+    <div class="detail-item">
+        <h3>Product Information</h3>
+        <p>
+            Explaining product specifications, features, and prices to customers.
+        </p>
+    </div>
+
+    <div class="detail-item">
+        <h3>Sales Support</h3>
+        <p>
+            Supporting product sales and assisting customers in choosing suitable products.
+        </p>
+    </div>
+
+    <div class="detail-item">
+        <h3>Store Operations</h3>
+        <p>
+            Supporting product arrangement, information management, and daily store activities.
+        </p>
+    </div>
+
+</div>
+
+        </section>
+
+
+        </section>
+
+
+        <footer>
+            © 2026 Ratih Anggraeni — Portfolio
+        </footer>
+
+
+    </main>
+
+
+    <script>
+
+        function toggleTheme() {
+
+            const body = document.body;
+
+            const currentTheme =
+                body.getAttribute("data-theme");
+
+            if (currentTheme === "dark") {
+
+                body.setAttribute("data-theme", "light");
+
+            } else {
+
+                body.setAttribute("data-theme", "dark");
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

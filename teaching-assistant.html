@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teaching Assistant | Ratih Anggraeni</title>
+
+<style>
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* THEME */
+
+:root {
+    --bg: #1c1c1c;
+    --surface: #242424;
+    --text: #f5f5f5;
+    --muted: #a9b4c2;
+    --border: rgba(255,255,255,0.15);
+    --grid: rgba(255,255,255,0.035);
+}
+
+[data-theme="light"] {
+    --bg: #f7f7f7;
+    --surface: #ffffff;
+    --text: #1c1c1c;
+    --muted: #5f6b78;
+    --border: rgba(0,0,0,0.15);
+    --grid: rgba(0,0,0,0.05);
+}
+
+
+/* BODY */
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    transition: 0.3s ease;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+
+    background-size: 55px 55px;
+}
+
+
+/* HEADER */
+
+.page-header {
+    max-width: 1200px;
+    margin: auto;
+    padding: 28px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.back-button,
+.theme-toggle {
+    padding: 10px 18px;
+
+    color: var(--text);
+    background: transparent;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.back-button:hover,
+.theme-toggle:hover {
+    background: var(--text);
+    color: var(--bg);
+}
+
+
+/* MAIN */
+
+.page-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 40px 100px;
+}
+
+
+.page-label {
+    color: var(--muted);
+    letter-spacing: 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+
+h1 {
+    font-size: clamp(42px, 7vw, 80px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+
+.intro {
+    max-width: 850px;
+    color: var(--muted);
+    font-size: 19px;
+    margin-bottom: 70px;
+}
+
+
+.content-section {
+    margin-bottom: 70px;
+}
+
+
+.content-section h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+
+.content-section p {
+    max-width: 900px;
+    color: var(--muted);
+    font-size: 17px;
+    text-align: justify;
+    margin-bottom: 18px;
+}
+
+
+/* IMAGE */
+
+.company-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    margin-bottom: 30px;
+}
+
+
+/* DETAILS */
+
+.details-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+.detail-item {
+    padding: 25px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+
+.detail-item h3 {
+    margin-bottom: 8px;
+}
+
+
+.detail-item p {
+    margin: 0;
+}
+
+
+/* GALLERY */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+
+.gallery-card {
+    overflow: hidden;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+
+.gallery-card img {
+    width: 100%;
+    height: 280px;
+
+    display: block;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+
+footer {
+    padding-top: 50px;
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+    text-align: center;
+}
+
+
+@media (max-width: 800px) {
+
+    .page-header {
+        padding: 22px 20px;
+    }
+
+    .page-container {
+        padding: 40px 20px 70px;
+    }
+
+    .gallery-grid,
+    .details-box {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body data-theme="dark">
+
+
+<header class="page-header">
+
+<a href="index.html" class="back-button">
+← Back to Portfolio
+</a>
+
+<button class="theme-toggle" onclick="toggleTheme()">
+☼ / ☾ Theme
+</button>
+
+</header>
+
+
+<main class="page-container">
+
+
+<div class="page-label">
+Academic Support & Administration
+</div>
+
+<h1>
+Teaching Assistant
+</h1>
+
+<p class="intro">
+Forum Asisten (FA) is an organization under the UPT Pengembangan Laboratorium dan Teknologi (PLT) at Universitas AMIKOM Purwokerto.
+It supports lecturers in practical learning activities while developing members’ technical skills, leadership, responsibility, and teamwork. FA consists of three divisions: Programming, Multimedia, and Networking & Intelligent Systems.
+ <a href="https://forumasisten.amikompurwokerto.ac.id/"
+                    target="_blank"
+                    class="project-link">
+
+                    Learn more about the Assistant Forum (FA) at AMIKOM Purwokerto University
+
+                </a>
+
+</p>
+
+<section class="content-section">
+
+<h2>
+About the Experience
+</h2>
+
+<p>
+As a Teaching Assistant at Universitas Amikom Purwokerto, I supported lecturers and students in various Informatics courses by assisting practical learning activities, explaining technical concepts, and providing academic guidance in laboratory sessions. I have contributed to several courses, including Introduction to Multimedia, Computer Networks, .NET Framework Programming, Data Communication, 3D Visualization, Mobile Programming, and Natural Language Processing, as well as other Informatics-related subjects.
+
+This experience strengthened my technical knowledge in programming, networking, multimedia, mobile development, data communication, and Artificial Intelligence, while also developing my skills in communication, administration, problem-solving, teamwork, and student support. Through this role, I gained valuable experience in managing learning activities and delivering clear technical information to students with different levels of understanding.
+</p>
+
+</section>
+
+
+<section class="content-section">
+
+<h2>
+Responsibilities & Skills
+</h2>
+
+<div class="details-box">
+
+<div class="detail-item">
+<h3>Academic Support</h3>
+<p>
+Assisting students during learning activities and practical sessions.
+</p>
+</div>
+
+<div class="detail-item">
+<h3>Information Delivery</h3>
+<p>
+Providing clear information and explanations to students.
+</p>
+</div>
+
+<div class="detail-item">
+<h3>Administrative Skills</h3>
+<p>
+Managing academic information, documents, and learning activities.
+</p>
+</div>
+
+<div class="detail-item">
+<h3>Communication</h3>
+<p>
+Developing effective communication and collaboration skills.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="content-section">
+
+<h2>
+Activities & Certificates
+</h2>
+
+<div class="gallery-grid">
+
+<div class="gallery-card">
+<img src="images/teaching-assistant/activity-1.jpg" alt="Teaching Assistant Activity">
+</div>
+
+<div class="gallery-card">
+<img src="images/teaching-assistant/activity-2.jpg" alt="Teaching Assistant Activity">
+</div>
+
+<div class="gallery-card">
+<img src="images/teaching-assistant/certificate-1.jpg" alt="Teaching Assistant Certificate">
+</div>
+
+<div class="gallery-card">
+<img src="images/teaching-assistant/certificate-2.jpg" alt="Teaching Assistant Certificate">
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+© 2026 Ratih Anggraeni — Portfolio
+</footer>
+
+
+</main>
+
+
+<script>
+
+function toggleTheme() {
+
+const body = document.body;
+
+const currentTheme =
+body.getAttribute("data-theme");
+
+body.setAttribute(
+"data-theme",
+currentTheme === "dark" ? "light" : "dark"
+);
+
+}
+
+</script>
+
+
+</body>
+
+</html>

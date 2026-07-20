@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bangkit Academy 2024 | Ratih Anggraeni</title>
+
+<style>
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* THEME */
+
+:root {
+    --bg: #1c1c1c;
+    --surface: #242424;
+    --text: #f5f5f5;
+    --muted: #a9b4c2;
+    --border: rgba(255,255,255,0.15);
+    --grid: rgba(255,255,255,0.035);
+}
+
+[data-theme="light"] {
+    --bg: #f7f7f7;
+    --surface: #ffffff;
+    --text: #1c1c1c;
+    --muted: #5f6b78;
+    --border: rgba(0,0,0,0.15);
+    --grid: rgba(0,0,0,0.05);
+}
+
+
+/* BODY */
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    transition: 0.3s ease;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+
+    background-size: 55px 55px;
+}
+
+
+/* HEADER */
+
+.page-header {
+    max-width: 1200px;
+    margin: auto;
+    padding: 28px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.back-button,
+.theme-toggle {
+    padding: 10px 18px;
+
+    color: var(--text);
+    background: transparent;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.back-button:hover,
+.theme-toggle:hover {
+    background: var(--text);
+    color: var(--bg);
+}
+
+
+/* MAIN */
+
+.page-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 40px 100px;
+}
+
+
+.page-label {
+    color: var(--muted);
+    letter-spacing: 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+
+h1 {
+    font-size: clamp(42px, 7vw, 80px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+
+.intro {
+    max-width: 850px;
+    color: var(--muted);
+    font-size: 19px;
+    margin-bottom: 70px;
+}
+
+
+.content-section {
+    margin-bottom: 70px;
+}
+
+
+.content-section h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+
+.content-section p {
+    max-width: 900px;
+    color: var(--muted);
+    font-size: 17px;
+    text-align: justify;
+    margin-bottom: 18px;
+}
+
+
+/* IMAGE */
+
+.company-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    margin-bottom: 30px;
+}
+
+
+/* DETAILS */
+
+.details-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+.detail-item {
+    padding: 25px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+
+.detail-item h3 {
+    margin-bottom: 8px;
+}
+
+
+.detail-item p {
+    margin: 0;
+}
+
+
+/* GALLERY */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+
+.gallery-card {
+    overflow: hidden;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+
+.gallery-card img {
+    width: 100%;
+    height: 280px;
+
+    display: block;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+
+footer {
+    padding-top: 50px;
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+    text-align: center;
+}
+
+
+@media (max-width: 800px) {
+
+    .page-header {
+        padding: 22px 20px;
+    }
+
+    .page-container {
+        padding: 40px 20px 70px;
+    }
+
+    .gallery-grid,
+    .details-box {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+}
+
+.certificate-button {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 28px;
+    padding: 14px 20px;
+
+    color: var(--text) !important;
+    background: var(--surface) !important;
+
+    border: 1px solid var(--border) !important;
+    border-radius: 12px;
+
+    text-decoration: none !important;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.certificate-button:hover {
+    color: var(--text) !important;
+    background: var(--surface) !important;
+
+    border-color: var(--text) !important;
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.button-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--bg);
+    background: var(--text);
+
+    border-radius: 9px;
+}
+
+.button-arrow {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.certificate-button:hover .button-arrow {
+    transform: translateX(6px);
+}
+
+</style>
+
+</head>
+
+
+<body data-theme="dark">
+
+
+<header class="page-header">
+
+<a href="index.html" class="back-button">
+← Back to Portfolio
+</a>
+
+<button class="theme-toggle" onclick="toggleTheme()">
+☼ / ☾ Theme
+</button>
+
+</header>
+
+
+<main class="page-container">
+
+
+<div class="page-label">
+Machine Learning
+</div>
+
+
+<h1>
+MBKM Bangkit 2024 Batch 2
+</h1>
+
+
+<p class="intro">
+An intensive machine learning program developed through Bangkit Academy,
+supported by Google, GoTo, and Traveloka.
+</p>
+
+
+<section class="content-section">
+
+<h2>
+About the Program
+</h2>
+
+<p>
+Bangkit Academy 2024 Batch 2 was an intensive MBKM (Merdeka Belajar Kampus Merdeka) program supported by leading technology companies, including Google, GoTo, and Traveloka. As a participant in the Machine Learning path, I developed practical skills in Python, data analysis, machine learning, deep learning, TensorFlow, and cloud technology through structured learning, hands-on projects, and collaborative work.
+
+The program strengthened my technical abilities, problem-solving skills, teamwork, communication, and readiness to apply machine learning to real-world challenges.
+</p>
+
+</section>
+
+
+<section class="content-section">
+
+<h2>
+Learning Experience
+</h2>
+
+<div class="details-box">
+
+<div class="detail-item">
+<h3>Machine Learning</h3>
+<p>
+Studied fundamental and advanced machine learning concepts.
+</p>
+</div>
+
+<div class="detail-item">
+<h3>Python Programming</h3>
+<p>
+Developed programming skills using Python for data and machine learning.
+</p>
+</div>
+
+<div class="detail-item">
+<h3>Project Development</h3>
+<p>
+Worked on a machine learning capstone project.
+</p>
+</div>
+
+<div class="detail-item">
+<h3>Professional Skills</h3>
+<p>
+Improved collaboration, communication, and problem-solving skills.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="content-section">
+
+<h2>
+Activities
+</h2>
+
+<div class="gallery-grid">
+
+<div class="gallery-card">
+<img src="images/bangkit/activity-1.jpg" alt="Bangkit Activity">
+</div>
+
+<div class="gallery-card">
+<img src="images/bangkit/activity-2.jpg" alt="Bangkit Activity">
+</div>
+
+</div>
+
+<h2>
+Certificates
+</h2>
+
+<div class="gallery-grid">
+
+<div class="gallery-card">
+<img src="images/bangkit/certificate-1.jpg" alt="Bangkit Certificate">
+</div>
+
+<div class="gallery-card">
+<img src="images/bangkit/certificate-2.jpg" alt="Bangkit Certificate">
+</div>
+
+<a
+    href="https://drive.google.com/drive/folders/1hyVDLtTiae10vjv9vCF0_uBJUnQVlioI?usp=sharing"
+    target="_blank"
+    class="certificate-button"
+>
+    <span class="button-icon">
+        📁
+    </span>
+
+    <span class="button-text">
+        View All Certificates
+    </span>
+
+    <span class="button-arrow">
+        →
+    </span>
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+© 2026 Ratih Anggraeni — Portfolio
+</footer>
+
+
+</main>
+
+
+<script>
+
+function toggleTheme() {
+
+const body = document.body;
+
+const currentTheme =
+body.getAttribute("data-theme");
+
+body.setAttribute(
+"data-theme",
+currentTheme === "dark" ? "light" : "dark"
+);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
