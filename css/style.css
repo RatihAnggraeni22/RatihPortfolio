@@ -2637,3 +2637,31 @@ background-clip: text;
     }
 
 }
+
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+
+        width: 100%;
+
+        margin-top: 20px;
+        padding: 20px;
+
+        position: relative;
+        z-index: 9999;
+
+        background: var(--surface);
+
+        border: 1px solid var(--border);
+        border-radius: 18px;
+    }
+
+    .hero-image {
+        z-index: 1;
+    }
+
+}
