@@ -2313,3 +2313,327 @@ background-clip: text;
         transform: translateY(-4px);
 
     }}
+
+/* =====================================================
+   RESPONSIVE DESIGN - TABLET & MOBILE
+===================================================== */
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    /* Container utama */
+    .container,
+    .wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    /* Grid menjadi 2 kolom */
+    .projects-grid,
+    .project-grid,
+    .posts-grid,
+    .post-grid,
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    /* Mencegah halaman melebar ke samping */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* Semua section */
+    section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* Container */
+    .container,
+    .wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    nav ul {
+        gap: 14px;
+    }
+
+
+    nav a {
+        font-size: 13px;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        padding: 70px 20px 60px;
+    }
+
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(38px, 11vw, 58px);
+        line-height: 1.05;
+        letter-spacing: -1px;
+    }
+
+
+    .hero p {
+        max-width: 100%;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* =========================
+       PROFILE IMAGE
+    ========================= */
+
+    .hero-image,
+    .profile-image {
+        width: min(75vw, 300px);
+        height: min(75vw, 300px);
+
+        margin: 0 auto;
+    }
+
+
+    /* =========================
+       HERO BUTTON
+    ========================= */
+
+    .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+
+    .hero-buttons a {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       SOCIAL LINKS
+    ========================= */
+
+    .quick-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+
+    .quick-links a {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-content,
+    .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+
+    .about p,
+    .about-section p {
+        text-align: justify;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       SECTION TITLE
+    ========================= */
+
+    section h2 {
+        font-size: 32px;
+        line-height: 1.1;
+    }
+
+
+    /* =========================
+       ALL GRID
+    ========================= */
+
+    .projects-grid,
+    .project-grid,
+    .posts-grid,
+    .post-grid,
+    .experience-grid,
+    .gallery-grid,
+    .certificate-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .project-card,
+    .post-card,
+    .experience-card,
+    .gallery-item,
+    article {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    /* =========================
+       IMAGES
+    ========================= */
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-section {
+        padding: 60px 20px;
+    }
+
+
+    .contact-social-links {
+        width: 100%;
+    }
+
+
+    .contact-social-links a {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+
+    /* Hero */
+    .hero {
+        padding: 55px 18px 45px;
+    }
+
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+
+    /* Button menjadi full width */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+
+    .hero-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* Judul section */
+    section h2 {
+        font-size: 28px;
+    }
+
+
+    /* Paragraf */
+    p {
+        font-size: 14px;
+    }
+
+
+    /* Contact text */
+    .contact-social-links a {
+        font-size: 13px;
+    }
+
+
+    /* Foto profil */
+    .hero-image,
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+
+}
